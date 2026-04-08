@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UpVolt End-to-End Process Swimlane</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{background:#1a1d23;color:#e2e8f0;font-family:'DM Sans',system-ui,sans-serif;overflow-x:auto;font-size:10px}
+  .header{padding:12px 18px 10px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.08);position:sticky;left:0;background:#1a1d23;z-index:10}
+  .header-left{display:flex;align-items:center;gap:10px}
+  .logo{background:#f97316;color:#fff;font-weight:700;font-size:11px;padding:3px 6px;border-radius:3px}
+  .header h1{font-size:14px;font-weight:700;color:#f1f5f9}
+  .header-right{font-size:10px;color:#64748b}
+  .legend{padding:6px 18px 8px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;border-bottom:1px solid rgba(255,255,255,0.08);position:sticky;left:0;background:#1a1d23;z-index:10}
+  .legend-pill{font-size:9px;font-weight:600;padding:2px 7px;border-radius:3px}
+  .legend-note{font-size:9px;color:#64748b;margin-left:6px;font-style:italic}
+  .grid-wrapper{min-width:max-content}
+  .grid{display:grid;grid-template-columns:62px repeat(9,minmax(125px,1fr))}
+  .stage-header{background:#22252b;padding:7px 8px;font-size:10px;font-weight:700;color:#94a3b8;border-bottom:2px solid;border-right:1px solid rgba(255,255,255,0.06);text-align:center;position:sticky;top:0;z-index:5}
+  .corner{background:#1a1d23;border-bottom:2px solid rgba(255,255,255,0.1);border-right:1px solid rgba(255,255,255,0.06);position:sticky;left:0;z-index:8;top:0}
+  .row-label{background:#1e2028;padding:6px 5px;font-size:10px;font-weight:700;border-bottom:1px solid rgba(255,255,255,0.06);border-right:1px solid rgba(255,255,255,0.06);display:flex;align-items:flex-start;justify-content:center;position:sticky;left:0;z-index:6;min-height:36px}
+  .cell{padding:4px 4px;border-bottom:1px solid rgba(255,255,255,0.06);border-right:1px solid rgba(255,255,255,0.04);display:flex;flex-direction:column;gap:2px;min-height:36px}
+  .pill{font-size:9.5px;padding:2px 6px;border-radius:3px;line-height:1.25;font-weight:500}
+  .pill.auto{font-style:italic;opacity:0.7}
+  .pill.payment{border-left:2px solid #22c55e}
+  .pill.cond{opacity:0.6;font-style:italic}
+  .empty{font-size:9px;color:#334155;padding:2px 6px}
+  .row-sales .row-label{color:#3b82f6} .row-ops .row-label{color:#eab308} .row-install .row-label{color:#ef4444} .row-finance .row-label{color:#22c55e} .row-support .row-label{color:#a855f7} .row-auto .row-label{color:#6b7280} .row-customer .row-label{color:#f97316}
+  .pill-sales{background:rgba(37,99,235,0.18);color:#60a5fa} .pill-ops{background:rgba(234,179,8,0.15);color:#facc15} .pill-install{background:rgba(239,68,68,0.15);color:#f87171} .pill-finance{background:rgba(34,197,94,0.15);color:#4ade80} .pill-support{background:rgba(168,85,247,0.15);color:#c084fc} .pill-auto{background:rgba(107,114,128,0.12);color:#9ca3af} .pill-customer{background:rgba(249,115,22,0.18);color:#fb923c}
+  .sc1{border-bottom-color:#3b82f6} .sc2{border-bottom-color:#6366f1} .sc2b{border-bottom-color:#f97316} .sc3{border-bottom-color:#8b5cf6} .sc4{border-bottom-color:#eab308} .sc5{border-bottom-color:#06b6d4} .sc6{border-bottom-color:#ec4899} .sc7{border-bottom-color:#22c55e} .sc8{border-bottom-color:#a855f7}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-left"><span class="logo">UV</span><h1>End-to-end process swimlane</h1></div>
+  <div class="header-right">April 2026 | 9 stages, 8 systems, 7 roles</div>
+</div>
+<div class="legend">
+  <span class="legend-pill pill-sales">Sales</span>
+  <span class="legend-pill pill-ops">Ops</span>
+  <span class="legend-pill pill-install">Install</span>
+  <span class="legend-pill pill-finance">Finance</span>
+  <span class="legend-pill pill-support">Support</span>
+  <span class="legend-pill pill-auto">Auto</span>
+  <span class="legend-pill pill-customer">Customer</span>
+  <span class="legend-note">Italic = automated. Scroll right for all stages.</span>
+</div>
+<div class="grid-wrapper"><div class="grid">
+
+  <div class="corner"></div>
+  <div class="stage-header sc1">1. Lead capture</div>
+  <div class="stage-header sc2">2. Consultation</div>
+  <div class="stage-header sc2b">2b. Sales survey</div>
+  <div class="stage-header sc3">3. Contract</div>
+  <div class="stage-header sc4">4. Handover</div>
+  <div class="stage-header sc5">5. Survey &amp; pre-install</div>
+  <div class="stage-header sc6">6. Installation</div>
+  <div class="stage-header sc7">7. Completion</div>
+  <div class="stage-header sc8">8. Support</div>
+
+  <!-- SALES -->
+  <div class="row-label row-sales">Sales</div>
+  <div class="cell">
+    <div class="pill pill-sales">SDR calls / booking link</div>
+    <div class="pill pill-sales">Lead details in HubSpot</div>
+    <div class="pill pill-sales">Meeting booked</div>
+  </div>
+  <div class="cell">
+    <div class="pill pill-sales">Prep design in Aurora</div>
+    <div class="pill pill-sales">Video consultation</div>
+    <div class="pill pill-sales">Discovery + summary</div>
+    <div class="pill pill-sales">Attempt to close</div>
+    <div class="pill pill-sales cond">IF negotiate: amend pricing</div>
+    <div class="pill pill-sales cond">IF not ready: follow-ups / warming bin</div>
+  </div>
+  <div class="cell">
+    <div class="pill pill-sales">Flag for survey</div>
+    <div class="pill pill-sales">Book survey</div>
+    <div class="pill pill-sales">On-site consultation + survey (SimPro Digital Forms)</div>
+    <div class="pill pill-sales">Update Aurora design</div>
+    <div class="pill pill-sales">Upload survey to HS + SimPro</div>
+  </div>
+  <div class="cell"><div class="pill pill-sales">Line items to deal</div></div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell"><div class="empty">--</div></div>
+
+  <!-- OPS -->
+  <div class="row-label row-ops">Ops</div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell">
+    <div class="pill pill-ops">SimPro invoice generated</div>
+    <div class="pill pill-ops">HIES application submitted</div>
+  </div>
+  <div class="cell">
+    <div class="pill pill-ops">Review order</div>
+    <div class="pill pill-ops">Deposit check gate</div>
+    <div class="pill pill-ops">HIES approved</div>
+    <div class="pill pill-ops">MCS application submitted</div>
+    <div class="pill pill-ops">GM accepts project</div>
+    <div class="pill pill-ops">Submit G99 to DNO</div>
+    <div class="pill pill-ops">G99 accepted</div>
+  </div>
+  <div class="cell">
+    <div class="pill pill-ops">Schedule tech survey (if std path)</div>
+    <div class="pill pill-ops">Survey satisfactory?</div>
+    <div class="pill pill-ops">Install Mgr approves BOM</div>
+    <div class="pill pill-ops">Set install date</div>
+    <div class="pill pill-ops">Warehouse vs direct-to-site</div>
+    <div class="pill pill-ops">POs finalised Thu, submitted Fri</div>
+    <div class="pill pill-ops">Kit check Wed-Thu</div>
+    <div class="pill pill-ops">Job card dispatched</div>
+    <div class="pill pill-ops">Contractor work orders (incl. scaffolding)</div>
+  </div>
+  <div class="cell">
+    <div class="pill pill-ops">Schedule install</div>
+    <div class="pill pill-ops">Install Mgr sign-off</div>
+  </div>
+  <div class="cell">
+    <div class="pill pill-ops">Tariff to Xenon</div>
+    <div class="pill pill-ops">MCS cert issued</div>
+    <div class="pill pill-ops">Handover pack</div>
+    <div class="pill pill-ops">Satisfaction call + Google review ask</div>
+  </div>
+  <div class="cell">
+    <div class="pill pill-ops">Warranty jobs (SimPro)</div>
+    <div class="pill pill-ops">Service jobs scheduled</div>
+  </div>
+
+  <!-- INSTALL -->
+  <div class="row-label row-install">Install</div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell"><div class="pill pill-install">Survey via Digital Forms (if std path)</div></div>
+  <div class="cell">
+    <div class="pill pill-install">Log hours in SimPro</div>
+    <div class="pill pill-install">Installation on site</div>
+    <div class="pill pill-install">Commission via Digital Forms</div>
+    <div class="pill pill-install">System tested</div>
+  </div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell"><div class="empty">--</div></div>
+
+  <!-- FINANCE -->
+  <div class="row-label row-finance">Finance</div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell">
+    <div class="pill pill-finance payment">£250 survey deposit</div>
+    <div class="pill pill-finance payment">£250 redeemed at contract</div>
+  </div>
+  <div class="cell">
+    <div class="pill pill-finance payment">25% deposit (minus £250 if survey)</div>
+  </div>
+  <div class="cell"><div class="pill pill-finance">Deposit marked paid</div></div>
+  <div class="cell">
+    <div class="pill pill-finance payment">50% pre-install deposit</div>
+    <div class="pill pill-finance">Supplier DoG invoice receipted</div>
+  </div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell">
+    <div class="pill pill-finance payment">Final invoice sent</div>
+    <div class="pill pill-finance payment">Final payment received</div>
+    <div class="pill pill-finance">Cost vs Sold assessment</div>
+    <div class="pill pill-finance">Overdue: 1-30d → 31-60d → GM</div>
+  </div>
+  <div class="cell"><div class="empty">--</div></div>
+
+  <!-- SUPPORT -->
+  <div class="row-label row-support">Support</div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell"><div class="pill pill-support">Pre-start check-in call</div></div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell">
+    <div class="pill pill-support">Service intro call</div>
+    <div class="pill pill-support">UpVolt 360 enrollment</div>
+    <div class="pill pill-support">support@ tickets</div>
+  </div>
+
+  <!-- AUTO -->
+  <div class="row-label row-auto">Auto</div>
+  <div class="cell">
+    <div class="pill pill-auto auto">Form → HubSpot</div>
+    <div class="pill pill-auto auto">Aurora/Spruce design created</div>
+    <div class="pill pill-auto auto">Deal created</div>
+  </div>
+  <div class="cell"><div class="pill pill-auto auto">Proposal generated (UVC)</div></div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell">
+    <div class="pill pill-auto auto">Contract generated (UVC)</div>
+    <div class="pill pill-auto auto">Deal stage update</div>
+    <div class="pill pill-auto auto">Welcome email (+ self-survey link)</div>
+    <div class="pill pill-auto auto">Slack handover notification</div>
+  </div>
+  <div class="cell"><div class="pill pill-auto auto">SimPro job via API (UVC)</div></div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell"><div class="pill pill-auto auto">Deal closed (UVC sync)</div></div>
+  <div class="cell"><div class="pill pill-auto auto">Referral email</div></div>
+
+  <!-- CUSTOMER -->
+  <div class="row-label row-customer">Customer</div>
+  <div class="cell"><div class="pill pill-customer">Completes enquiry form</div></div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell">
+    <div class="pill pill-customer">Pays £250</div>
+    <div class="pill pill-customer">Signs off design</div>
+  </div>
+  <div class="cell">
+    <div class="pill pill-customer">Signs contract</div>
+    <div class="pill pill-customer">Pays 25% deposit</div>
+  </div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell"><div class="pill pill-customer">Pays 50% deposit</div></div>
+  <div class="cell"><div class="empty">--</div></div>
+  <div class="cell"><div class="pill pill-customer">Pays final balance</div></div>
+  <div class="cell"><div class="empty">--</div></div>
+
+</div></div>
+</body>
+</html>
